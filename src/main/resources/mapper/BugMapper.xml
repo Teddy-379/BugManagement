@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.enmonster.platform.aom.mapper.battery.BatteryAssetInfoMapper">
+    <resultMap id="BaseResultMap" type="com.enmonster.platform.aom.entity.battery.BatteryAssetOperateRecordEntity">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="level" jdbcType="TINYINT" property="level"/>
+        <result column="addr" jdbcType="VARCHAR" property="addr"/>
+        <result column="source" jdbcType="VARCHAR" property="source"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+        <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify"/>
+    </resultMap>
+
+    <insert id="save" parameterType="com.enmonster.platform.aom.entity.battery.BatteryAssetOperateRecordEntity">
+        insert into t_aom_battery_asset_operate_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="employeeNumber != null">
+                employee_number,
+            </if>
+            <if test="snCode != null">
+                sn_code,
+            </if>
+            <if test="assetTrackCode != null">
+                asset_track_code,
+            </if>
+            <if test="assetTypeCode != null">
+                asset_type_code,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="subStatus != null">
+                sub_status,
+            </if>
+            <if test="holder != null">
+                holder,
+            </if>
+            <if test="holderCode != null">
+                holder_code,
+            </if>
+            <if test="holderName != null">
+                holder_name,
+            </if>
+            <if test="subHolder != null">
+                sub_holder,
+            </if>
+            <if test="subHolderCode != null">
+                sub_holder_code,
+            </if>
+            <if test="subHolderName != null">
+                sub_holder_name,
+            </if>
+            <if test="orderCount != null">
+                order_count,
+            </if>
+            <if test="damageType != null">
+                damage_type,
+            </if>
+            <if test="systemIdentifyFail != null">
+                system_identify_fail,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="employeeNumber != null">
+                #{employeeNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="snCode != null">
+                #{snCode,jdbcType=VARCHAR},
+            </if>
+            <if test="assetTrackCode != null">
+                #{assetTrackCode,jdbcType=VARCHAR},
+            </if>
+            <if test="assetTypeCode != null">
+                #{assetTypeCode,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="subStatus != null">
+                #{subStatus,jdbcType=TINYINT},
+            </if>
+            <if test="holder != null">
+                #{holder,jdbcType=TINYINT},
+            </if>
+            <if test="holderCode != null">
+                #{holderCode,jdbcType=VARCHAR},
+            </if>
+            <if test="holderName != null">
+                #{holderName,jdbcType=VARCHAR},
+            </if>
+            <if test="subHolder != null">
+                #{subHolder,jdbcType=TINYINT},
+            </if>
+            <if test="subHolderCode != null">
+                #{subHolderCode,jdbcType=VARCHAR},
+            </if>
+            <if test="subHolderName != null">
+                #{subHolderName,jdbcType=VARCHAR},
+            </if>
+            <if test="orderCount != null">
+                #{orderCount,jdbcType=INTEGER},
+            </if>
+            <if test="damageType != null">
+                #{damageType,jdbcType=TINYINT},
+            </if>
+            <if test="systemIdentifyFail != null">
+                #{systemIdentifyFail,jdbcType=TINYINT},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted,jdbcType=TINYINT},
+            </if>
+        </trim>
+        ON DUPLICATE KEY update
+        <trim suffixOverrides=",">
+            <if test="employeeNumber != null">
+                employee_number = #{employeeNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="snCode != null">
+                sn_code = #{snCode,jdbcType=VARCHAR},
+            </if>
+            <if test="assetTrackCode != null">
+                asset_track_code = #{assetTrackCode,jdbcType=VARCHAR},
+            </if>
+            <if test="assetTypeCode != null">
+                asset_type_code = #{assetTypeCode,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="subStatus != null">
+                sub_status = #{subStatus,jdbcType=TINYINT},
+            </if>
+            <if test="holder != null">
+                holder = #{holder,jdbcType=TINYINT},
+            </if>
+            <if test="holderCode != null">
+                holder_code = #{holderCode,jdbcType=VARCHAR},
+            </if>
+            <if test="holderName != null">
+                holder_name = #{holderName,jdbcType=VARCHAR},
+            </if>
+            <if test="subHolder != null">
+                sub_holder = #{subHolder,jdbcType=TINYINT},
+            </if>
+            <if test="subHolderCode != null">
+                sub_holder_code = #{subHolderCode,jdbcType=VARCHAR},
+            </if>
+            <if test="subHolderName != null">
+                sub_holder_name = #{subHolderName,jdbcType=VARCHAR},
+            </if>
+            <if test="orderCount != null">
+                order_count = #{orderCount,jdbcType=INTEGER},
+            </if>
+            <if test="damageType != null">
+                damage_type = #{damageType,jdbcType=TINYINT},
+            </if>
+            <if test="systemIdentifyFail != null">
+                system_identify_fail = #{systemIdentifyFail,jdbcType=TINYINT},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted,jdbcType=TINYINT},
+            </if>
+            <if test="gmtModify != null">
+                gmt_modify = #{gmtModify,jdbcType=TIMESTAMP}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="deleteBatteryAssetInfoBySns">
+        delete from t_aom_battery_asset_operate_record
+        where sn_code in
+        <foreach collection="sns" item="snCode" index="index" separator="," open="(" close=")">
+            #{snCode}
+        </foreach>
+    </delete>
+
+    <select id="page" resultMap="BaseResultMap">
+        SELECT
+        *
+        FROM t_aom_battery_asset_operate_record t
+        <trim prefix="WHERE" prefixOverrides="AND |OR">
+            <if test="model.employeeNumber != null">AND t.employee_number = #{model.employeeNumber}</if>
+            <if test="model.status != null">AND t.status = #{model.status}</if>
+            <if test="model.subStatus != null">AND t.sub_status = #{model.subStatus}</if>
+            <if test="model.holder != null">AND t.holder = #{model.holder}</if>
+            <if test="model.subHolder != null">AND t.sub_holder = #{model.subHolder}</if>
+            <if test="model.systemIdentifyFail != null">AND t.system_identify_fail = #{model.systemIdentifyFail}</if>
+            <if test="model.endTime != null">AND t.gmt_modify <![CDATA[ <= ]]> #{model.endTime}</if>
+            <if test="model.startTime != null">AND t.gmt_modify >= #{model.startTime}</if>
+        </trim>
+        ORDER BY t.gmt_modify DESC
+        LIMIT #{pageIndex}, #{pageSize}
+    </select>
+
+    <select id="count" parameterType="com.enmonster.platform.aom.dto.asset.battery.BatteryAssetRecordRequestDTO"
+            resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM t_aom_battery_asset_operate_record t
+        <trim prefix="WHERE" prefixOverrides="AND |OR">
+            <if test="employeeNumber != null">AND t.employee_number = #{employeeNumber}</if>
+            <if test="status != null">AND t.status = #{status}</if>
+            <if test="subStatus != null">AND t.sub_status = #{subStatus}</if>
+            <if test="holder != null">AND t.holder = #{holder}</if>
+            <if test="subHolder != null">AND t.sub_holder = #{subHolder}</if>
+            <if test="systemIdentifyFail != null">AND t.system_identify_fail = #{systemIdentifyFail}</if>
+            <if test="endTime != null">AND t.gmt_modify <![CDATA[ <= ]]> #{endTime}</if>
+            <if test="startTime != null">AND t.gmt_modify >= #{startTime}</if>
+        </trim>
+    </select>
+
+    <select id="getDownloadList"
+            parameterType="com.enmonster.platform.aom.dto.asset.battery.BatteryAssetInfoDownloadRequestDTO"
+            resultMap="BaseResultMap">
+        SELECT
+        *
+        FROM t_aom_battery_asset_operate_record t
+        <trim prefix="WHERE" prefixOverrides="AND |OR">
+            <if test="employeeNumber != null">AND t.employee_number = #{employeeNumber}</if>
+            <if test="status != null">AND t.status = #{status}</if>
+            <if test="subStatus != null">AND t.sub_status = #{subStatus}</if>
+            <if test="holder != null">AND t.holder = #{holder}</if>
+            <if test="subHolder != null">AND t.sub_holder = #{subHolder}</if>
+            <if test="systemIdentifyFail != null">AND t.system_identify_fail = #{systemIdentifyFail}</if>
+            <if test="endTime != null">AND t.gmt_modify <![CDATA[ <= ]]> #{endTime}</if>
+            <if test="startTime != null">AND t.gmt_modify >= #{startTime}</if>
+        </trim>
+        ORDER BY t.gmt_modify DESC
+        <if test="limitBegin != null and pageSize != null">
+            LIMIT #{limitBegin}, #{pageSize}
+        </if>
+    </select>
+
+    <select id="getDownloadCount"
+            parameterType="com.enmonster.platform.aom.dto.asset.battery.BatteryAssetInfoDownloadRequestDTO"
+            resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM t_aom_battery_asset_operate_record t
+        <trim prefix="WHERE" prefixOverrides="AND |OR">
+            <if test="employeeNumber != null">AND t.employee_number = #{employeeNumber}</if>
+            <if test="status != null">AND t.status = #{status}</if>
+            <if test="subStatus != null">AND t.sub_status = #{subStatus}</if>
+            <if test="holder != null">AND t.holder = #{holder}</if>
+            <if test="subHolder != null">AND t.sub_holder = #{subHolder}</if>
+            <if test="systemIdentifyFail != null">AND t.system_identify_fail = #{systemIdentifyFail}</if>
+            <if test="endTime != null">AND t.gmt_modify <![CDATA[ <= ]]> #{endTime}</if>
+            <if test="startTime != null">AND t.gmt_modify >= #{startTime}</if>
+        </trim>
+    </select>
+
+</mapper>
