@@ -15,107 +15,68 @@
     </resultMap>
 
     <insert id="save" parameterType="com.enmonster.platform.aom.entity.battery.BatteryAssetOperateRecordEntity">
-        insert into t_aom_battery_asset_operate_record
+        insert into bug
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="employeeNumber != null">
-                employee_number,
+            <if test="name != null">
+                name,
             </if>
-            <if test="snCode != null">
-                sn_code,
+            <if test="type != null">
+                type,
             </if>
-            <if test="assetTrackCode != null">
-                asset_track_code,
+            <if test="level != null">
+                level,
             </if>
-            <if test="assetTypeCode != null">
-                asset_type_code,
+            <if test="addr != null">
+                addr,
+            </if>
+            <if test="source != null">
+                source,
+            </if>
+            <if test="remark != null">
+                remark,
             </if>
             <if test="status != null">
                 status,
             </if>
-            <if test="subStatus != null">
-                sub_status,
+            <if test="gmtCreate != null">
+                gmt_create,
             </if>
-            <if test="holder != null">
-                holder,
-            </if>
-            <if test="holderCode != null">
-                holder_code,
-            </if>
-            <if test="holderName != null">
-                holder_name,
-            </if>
-            <if test="subHolder != null">
-                sub_holder,
-            </if>
-            <if test="subHolderCode != null">
-                sub_holder_code,
-            </if>
-            <if test="subHolderName != null">
-                sub_holder_name,
-            </if>
-            <if test="orderCount != null">
-                order_count,
-            </if>
-            <if test="damageType != null">
-                damage_type,
-            </if>
-            <if test="systemIdentifyFail != null">
-                system_identify_fail,
-            </if>
-            <if test="isDeleted != null">
-                is_deleted,
+            <if test="gmtModify != null">
+                gmt_modify,
+
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="employeeNumber != null">
-                #{employeeNumber,jdbcType=VARCHAR},
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
             </if>
-            <if test="snCode != null">
-                #{snCode,jdbcType=VARCHAR},
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
             </if>
-            <if test="assetTrackCode != null">
-                #{assetTrackCode,jdbcType=VARCHAR},
+            <if test="level != null">
+                #{level,jdbcType=VARCHAR},
             </if>
-            <if test="assetTypeCode != null">
-                #{assetTypeCode,jdbcType=VARCHAR},
+            <if test="addr != null">
+                #{addr,jdbcType=VARCHAR},
+            </if>
+            <if test="source != null">
+                #{source,jdbcType=TINYINT},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=TINYINT},
             </if>
             <if test="status != null">
                 #{status,jdbcType=TINYINT},
             </if>
-            <if test="subStatus != null">
-                #{subStatus,jdbcType=TINYINT},
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=VARCHAR},
             </if>
-            <if test="holder != null">
-                #{holder,jdbcType=TINYINT},
-            </if>
-            <if test="holderCode != null">
-                #{holderCode,jdbcType=VARCHAR},
-            </if>
-            <if test="holderName != null">
-                #{holderName,jdbcType=VARCHAR},
-            </if>
-            <if test="subHolder != null">
-                #{subHolder,jdbcType=TINYINT},
-            </if>
-            <if test="subHolderCode != null">
-                #{subHolderCode,jdbcType=VARCHAR},
-            </if>
-            <if test="subHolderName != null">
-                #{subHolderName,jdbcType=VARCHAR},
-            </if>
-            <if test="orderCount != null">
-                #{orderCount,jdbcType=INTEGER},
-            </if>
-            <if test="damageType != null">
-                #{damageType,jdbcType=TINYINT},
-            </if>
-            <if test="systemIdentifyFail != null">
-                #{systemIdentifyFail,jdbcType=TINYINT},
-            </if>
-            <if test="isDeleted != null">
-                #{isDeleted,jdbcType=TINYINT},
+            <if test="gmtModify != null">
+                #{gmtModify,jdbcType=VARCHAR},
+
             </if>
         </trim>
+<!--
         ON DUPLICATE KEY update
         <trim suffixOverrides=",">
             <if test="employeeNumber != null">
@@ -170,20 +131,22 @@
                 gmt_modify = #{gmtModify,jdbcType=TIMESTAMP}
             </if>
         </trim>
+-->
     </insert>
 
-    <delete id="deleteBatteryAssetInfoBySns">
-        delete from t_aom_battery_asset_operate_record
+ <!--   <delete id="deleteBatteryAssetInfoBySns">
+        delete from bug
         where sn_code in
         <foreach collection="sns" item="snCode" index="index" separator="," open="(" close=")">
             #{snCode}
         </foreach>
     </delete>
+-->
 
     <select id="page" resultMap="BaseResultMap">
         SELECT
         *
-        FROM t_aom_battery_asset_operate_record t
+        FROM bug
         <trim prefix="WHERE" prefixOverrides="AND |OR">
             <if test="model.employeeNumber != null">AND t.employee_number = #{model.employeeNumber}</if>
             <if test="model.status != null">AND t.status = #{model.status}</if>
