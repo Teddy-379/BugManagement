@@ -12,7 +12,7 @@
     </resultMap>
 
 
-    <insert id="save" parameterType="com.jit.platform.entity.UserEntity">
+    <insert id="save" parameterType="com.jit.platform.entity.GroupEntity">
         insert into bug
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="groupId != null">
@@ -34,7 +34,7 @@
                 gmt_create,
             </if>
             <if test="gmtModify != null">
-                gmt_modify,
+                gmt_modify
 
             </if>
         </trim>
@@ -58,7 +58,7 @@
                 #{gmtCreate,jdbcType=TIMESTAMP},
             </if>
             <if test="gmtModify != null">
-                #{gmtModify,jdbcType=TIMESTAMP},
+                #{gmtModify,jdbcType=TIMESTAMP}
 
             </if>
         </trim>
