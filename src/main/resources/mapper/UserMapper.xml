@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.enmonster.platform.aom.mapper.battery.BatteryAssetInfoMapper">
+    <resultMap id="BaseResultMap" type="com.jit.platform.entity.UserEntity">
+        <id column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="user_account" jdbcType="VARCHAR" property="userAccount"/>
+        <result column="user_pass" jdbcType="VARCHAR" property="userPass"/>
+        <result column="user_role" jdbcType="varchar" property="userRole"/>
+        <result column="user_group" jdbcType="VARCHAR" property="userGroup"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="user_mail" jdbcType="VARCHAR" property="userMail"/>
+        <result column="user_phone" jdbcType="varchar" property="userPhone"/>
+        <result column="user_tip" jdbcType="varchar" property="userTip"/>
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+        <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify"/>
+    </resultMap>
+
+
+    <insert id="save" parameterType="com.jit.platform.entity.UserEntity">
+        insert into bug
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="userAccount != null">
+                user_account,
+            </if>
+            <if test="userPass != null">
+                user_pass,
+            </if>
+            <if test="userRole != null">
+                user_role,
+            </if>
+            <if test="userGroup != null">
+                user_group,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="userMail != null">
+                user_mail,
+            </if>
+            <if test="userPhone != null">
+                user_phone,
+            </if>
+            <if test="userTip != null">
+                user_tip,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModify != null">
+                gmt_modify,
+
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="userAccount != null">
+                #{userAccount,jdbcType=VARCHAR},
+            </if>
+            <if test="userPass != null">
+                #{userPass,jdbcType=VARCHAR},
+            </if>
+            <if test="userRole != null">
+                #{userRole,jdbcType=VARCHAR},
+            </if>
+            <if test="userGroup != null">
+                #{userGroup,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userMail != null">
+                #{userMail,jdbcType=VARCHAR},
+            </if>
+            <if test="userPhone != null">
+                #{userPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="userTip != null">
+                #{userTip,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModify != null">
+                #{gmtModify,jdbcType=TIMESTAMP},
+
+            </if>
+        </trim>
+        <!--
+                ON DUPLICATE KEY update
+                <trim suffixOverrides=",">
+                    <if test="employeeNumber != null">
+                        employee_number = #{employeeNumber,jdbcType=VARCHAR},
+                    </if>
+                    <if test="snCode != null">
+                        sn_code = #{snCode,jdbcType=VARCHAR},
+                    </if>
+                    <if test="assetTrackCode != null">
+                        asset_track_code = #{assetTrackCode,jdbcType=VARCHAR},
+                    </if>
+                    <if test="assetTypeCode != null">
+                        asset_type_code = #{assetTypeCode,jdbcType=VARCHAR},
+                    </if>
+                    <if test="status != null">
+                        status = #{status,jdbcType=TINYINT},
+                    </if>
+                    <if test="subStatus != null">
+                        sub_status = #{subStatus,jdbcType=TINYINT},
+                    </if>
+                    <if test="holder != null">
+                        holder = #{holder,jdbcType=TINYINT},
+                    </if>
+                    <if test="holderCode != null">
+                        holder_code = #{holderCode,jdbcType=VARCHAR},
+                    </if>
+                    <if test="holderName != null">
+                        holder_name = #{holderName,jdbcType=VARCHAR},
+                    </if>
+                    <if test="subHolder != null">
+                        sub_holder = #{subHolder,jdbcType=TINYINT},
+                    </if>
+                    <if test="subHolderCode != null">
+                        sub_holder_code = #{subHolderCode,jdbcType=VARCHAR},
+                    </if>
+                    <if test="subHolderName != null">
+                        sub_holder_name = #{subHolderName,jdbcType=VARCHAR},
+                    </if>
+                    <if test="orderCount != null">
+                        order_count = #{orderCount,jdbcType=INTEGER},
+                    </if>
+                    <if test="damageType != null">
+                        damage_type = #{damageType,jdbcType=TINYINT},
+                    </if>
+                    <if test="systemIdentifyFail != null">
+                        system_identify_fail = #{systemIdentifyFail,jdbcType=TINYINT},
+                    </if>
+                    <if test="isDeleted != null">
+                        is_deleted = #{isDeleted,jdbcType=TINYINT},
+                    </if>
+                    <if test="gmtModify != null">
+                        gmt_modify = #{gmtModify,jdbcType=TIMESTAMP}
+                    </if>
+                </trim>
+        -->
+    </insert>

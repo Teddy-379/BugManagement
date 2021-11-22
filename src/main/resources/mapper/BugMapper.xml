@@ -1,78 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.enmonster.platform.aom.mapper.battery.BatteryAssetInfoMapper">
-    <resultMap id="BaseResultMap" type="com.enmonster.platform.aom.entity.battery.BatteryAssetOperateRecordEntity">
-        <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="type" jdbcType="VARCHAR" property="type"/>
-        <result column="level" jdbcType="TINYINT" property="level"/>
-        <result column="addr" jdbcType="VARCHAR" property="addr"/>
-        <result column="source" jdbcType="VARCHAR" property="source"/>
-        <result column="remark" jdbcType="VARCHAR" property="remark"/>
-        <result column="status" jdbcType="TINYINT" property="status"/>
+    <resultMap id="BaseResultMap" type="com.jit.platform.entity.BugEntity">
+        <id column="bug_id" jdbcType="BIGINT" property="bugId"/>
+        <result column="bug_name" jdbcType="VARCHAR" property="bugName"/>
+        <result column="bug_type" jdbcType="VARCHAR" property="bugType"/>
+        <result column="bug_level" jdbcType="TINYINT" property="bugLevel"/>
+        <result column="bug_addr" jdbcType="VARCHAR" property="bugAddr"/>
+        <result column="bug_source" jdbcType="VARCHAR" property="bugSource"/>
+        <result column="bug_tip" jdbcType="VARCHAR" property="bugTip"/>
+        <result column="bug_flag" jdbcType="TINYINT" property="bugFlag"/>
+        <result column="judge_time" jdbcType="TIMESTAMP" property="judgeTime"/>
+        <result column="fix_time" jdbcType="TIMESTAMP" property="fixTime"/>
+        <result column="dead_line" jdbcType="TIMESTAMP" property="deadLine"/>
         <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
         <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify"/>
     </resultMap>
 
-    <insert id="save" parameterType="com.enmonster.platform.aom.entity.battery.BatteryAssetOperateRecordEntity">
+    <insert id="save" parameterType="com.jit.platform.entity.BugEntity">
         insert into bug
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="name != null">
-                name,
+            <if test="bugId != null">
+                bug_id,
             </if>
-            <if test="type != null">
-                type,
+            <if test="bugName != null">
+                bug_name,
             </if>
-            <if test="level != null">
-                level,
+            <if test="bugType != null">
+                bug_type,
             </if>
-            <if test="addr != null">
-                addr,
+            <if test="bugLevel != null">
+                bug_level,
             </if>
-            <if test="source != null">
-                source,
+            <if test="bugAddr != null">
+                bug_addr,
             </if>
-            <if test="remark != null">
-                remark,
+            <if test="bugSource != null">
+                bug_source,
             </if>
-            <if test="status != null">
-                status,
+            <if test="bugTip != null">
+                bug_tip,
+            </if>
+            <if test="bugFlag != null">
+                bug_flag,
+            </if>
+            <if test="judgeTime != null">
+                judge_time,
+            </if>
+            <if test="fixTime != null">
+                fix_time,
+            </if>
+            <if test="deadLine != null">
+                dead_line,
             </if>
             <if test="gmtCreate != null">
                 gmt_create,
             </if>
             <if test="gmtModify != null">
                 gmt_modify,
-
             </if>
         </trim>
+
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="name != null">
-                #{name,jdbcType=VARCHAR},
+            <if test="bugId != null">
+                #{bugId,jdbcType=BIGINT},
             </if>
-            <if test="type != null">
-                #{type,jdbcType=VARCHAR},
+            <if test="bugName != null">
+                #{bugName,jdbcType=VARCHAR},
             </if>
-            <if test="level != null">
-                #{level,jdbcType=VARCHAR},
+            <if test="bugType != null">
+                #{bugType,jdbcType=VARCHAR},
             </if>
-            <if test="addr != null">
-                #{addr,jdbcType=VARCHAR},
+            <if test="bugLevel != null">
+                #{bugLevel,jdbcType=TINYINT},
             </if>
-            <if test="source != null">
-                #{source,jdbcType=TINYINT},
+            <if test="bugAddr != null">
+                #{bugAddr,jdbcType=VARCHAR},
             </if>
-            <if test="remark != null">
-                #{remark,jdbcType=TINYINT},
+            <if test="bugSource != null">
+                #{bugSource,jdbcType=VARCHAR},
             </if>
-            <if test="status != null">
-                #{status,jdbcType=TINYINT},
+            <if test="bugTip != null">
+                #{bugTip,jdbcType=VARCHAR},
+            </if>
+            <if test="bugFlag != null">
+                #{bugFlag,jdbcType=TINYINT},
+            </if>
+            <if test="judgeTime != null">
+                #{judgeTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="fixTime != null">
+                #{fixTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deadLine != null">
+                #{deadLine,jdbcType=TIMESTAMP},
             </if>
             <if test="gmtCreate != null">
-                #{gmtCreate,jdbcType=VARCHAR},
+                #{gmtCreate,jdbcType=TIMESTAMP},
             </if>
             <if test="gmtModify != null">
-                #{gmtModify,jdbcType=VARCHAR},
+                #{gmtModify,jdbcType=TIMESTAMP},
 
             </if>
         </trim>

@@ -11,21 +11,27 @@ import java.time.LocalDateTime;
 public class BugEntity {
 
     //漏洞id
-    private Integer id;
+    private Integer bugId;
     //漏洞名称
-    private String name;
+    private String bugName;
     //漏洞类型
-    private String type;
+    private String bugType;
     //漏洞等级
-    private Integer level;
+    private Integer bugLevel;
     //漏洞地址
-    private String addr;
+    private String bugAddr;
     //漏洞来源
-    private String source;
+    private String bugSource;
     //漏洞描述
-    private String remark;
+    private String bugTip;
     //漏洞状态
-    private Integer status;
+    private Integer bugFlag;
+    //审核时间
+    private LocalDateTime judgeTime;
+    //修复时间
+    private LocalDateTime fixTime;
+    //漏洞时效
+    private LocalDateTime deadLine;
     //漏洞上传时间
     private LocalDateTime gmtCreate;
     //漏洞信息修改时间
