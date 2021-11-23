@@ -10,7 +10,7 @@
     </resultMap>
 
 
-    <insert id="save" parameterType="com.jit.platform.entity.UserEntity">
+    <insert id="save" parameterType="com.jit.platform.entity.RoleEntity">
         insert into bug
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="roleId != null">

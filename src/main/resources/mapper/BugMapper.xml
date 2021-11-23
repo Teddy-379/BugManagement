@@ -57,7 +57,7 @@
                 gmt_create,
             </if>
             <if test="gmtModify != null">
-                gmt_modify,
+                gmt_modify
             </if>
         </trim>
 
@@ -99,7 +99,7 @@
                 #{gmtCreate,jdbcType=TIMESTAMP},
             </if>
             <if test="gmtModify != null">
-                #{gmtModify,jdbcType=TIMESTAMP},
+                #{gmtModify,jdbcType=TIMESTAMP}
 
             </if>
         </trim>
