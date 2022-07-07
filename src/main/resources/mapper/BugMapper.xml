@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.enmonster.platform.aom.mapper.battery.BatteryAssetInfoMapper">
+<mapper namespace="com.jit.platform.mapper.BatteryAssetInfoMapper">
     <resultMap id="BaseResultMap" type="com.jit.platform.entity.BugEntity">
         <id column="bug_id" jdbcType="BIGINT" property="bugId"/>
         <result column="bug_name" jdbcType="VARCHAR" property="bugName"/>
@@ -186,61 +186,6 @@
         </trim>
         ORDER BY t.gmt_modify DESC
         LIMIT #{pageIndex}, #{pageSize}
-    </select>
-
-    <select id="count" parameterType="com.enmonster.platform.aom.dto.asset.battery.BatteryAssetRecordRequestDTO"
-            resultType="java.lang.Integer">
-        SELECT COUNT(*)
-        FROM t_aom_battery_asset_operate_record t
-        <trim prefix="WHERE" prefixOverrides="AND |OR">
-            <if test="employeeNumber != null">AND t.employee_number = #{employeeNumber}</if>
-            <if test="status != null">AND t.status = #{status}</if>
-            <if test="subStatus != null">AND t.sub_status = #{subStatus}</if>
-            <if test="holder != null">AND t.holder = #{holder}</if>
-            <if test="subHolder != null">AND t.sub_holder = #{subHolder}</if>
-            <if test="systemIdentifyFail != null">AND t.system_identify_fail = #{systemIdentifyFail}</if>
-            <if test="endTime != null">AND t.gmt_modify <![CDATA[ <= ]]> #{endTime}</if>
-            <if test="startTime != null">AND t.gmt_modify >= #{startTime}</if>
-        </trim>
-    </select>
-
-    <select id="getDownloadList"
-            parameterType="com.enmonster.platform.aom.dto.asset.battery.BatteryAssetInfoDownloadRequestDTO"
-            resultMap="BaseResultMap">
-        SELECT
-        *
-        FROM t_aom_battery_asset_operate_record t
-        <trim prefix="WHERE" prefixOverrides="AND |OR">
-            <if test="employeeNumber != null">AND t.employee_number = #{employeeNumber}</if>
-            <if test="status != null">AND t.status = #{status}</if>
-            <if test="subStatus != null">AND t.sub_status = #{subStatus}</if>
-            <if test="holder != null">AND t.holder = #{holder}</if>
-            <if test="subHolder != null">AND t.sub_holder = #{subHolder}</if>
-            <if test="systemIdentifyFail != null">AND t.system_identify_fail = #{systemIdentifyFail}</if>
-            <if test="endTime != null">AND t.gmt_modify <![CDATA[ <= ]]> #{endTime}</if>
-            <if test="startTime != null">AND t.gmt_modify >= #{startTime}</if>
-        </trim>
-        ORDER BY t.gmt_modify DESC
-        <if test="limitBegin != null and pageSize != null">
-            LIMIT #{limitBegin}, #{pageSize}
-        </if>
-    </select>
-
-    <select id="getDownloadCount"
-            parameterType="com.enmonster.platform.aom.dto.asset.battery.BatteryAssetInfoDownloadRequestDTO"
-            resultType="java.lang.Integer">
-        SELECT COUNT(*)
-        FROM t_aom_battery_asset_operate_record t
-        <trim prefix="WHERE" prefixOverrides="AND |OR">
-            <if test="employeeNumber != null">AND t.employee_number = #{employeeNumber}</if>
-            <if test="status != null">AND t.status = #{status}</if>
-            <if test="subStatus != null">AND t.sub_status = #{subStatus}</if>
-            <if test="holder != null">AND t.holder = #{holder}</if>
-            <if test="subHolder != null">AND t.sub_holder = #{subHolder}</if>
-            <if test="systemIdentifyFail != null">AND t.system_identify_fail = #{systemIdentifyFail}</if>
-            <if test="endTime != null">AND t.gmt_modify <![CDATA[ <= ]]> #{endTime}</if>
-            <if test="startTime != null">AND t.gmt_modify >= #{startTime}</if>
-        </trim>
     </select>
 
 </mapper>
